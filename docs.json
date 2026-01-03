@@ -29,19 +29,9 @@
             ]
           },
           {
-            "group": "Tools",
-            "pages": [
-              "tools/overview",
-              "tools/browser",
-              "tools/proxy",
-              "tools/terminal",
-              "tools/sandbox"
-            ]
-          },
-          {
             "group": "LLM Providers",
             "pages": [
-              "llm-providers/index",
+              "llm-providers/overview",
               "llm-providers/openai",
               "llm-providers/anthropic",
               "llm-providers/openrouter",
@@ -56,6 +46,16 @@
             "pages": [
               "integrations/github-actions",
               "integrations/ci-cd"
+            ]
+          },
+          {
+            "group": "Tools",
+            "pages": [
+              "tools/overview",
+              "tools/browser",
+              "tools/proxy",
+              "tools/terminal",
+              "tools/sandbox"
             ]
           },
           {
