@@ -5,10 +5,7 @@
   "colors": {
     "primary": "#22c55e",
     "light": "#4ade80",
-    "dark": "#16a34a",
-    "background": {
-      "dark": "#0a0a0a"
-    }
+    "dark": "#16a34a"
   },
   "favicon": "/logo/strix.png",
   "navigation": {
