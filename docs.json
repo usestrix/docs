@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "maple",
   "name": "Strix",
   "colors": {
     "primary": "#22c55e",
@@ -102,6 +102,16 @@
     }
   },
   "fonts": {
-    "family": "Geist"
-  }
+    "family": "Geist",
+    "heading": {
+      "family": "Geist"
+    },
+    "body": {
+      "family": "Geist"
+    }
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "description": "Open-source AI Hackers to secure your Apps"
 }
