@@ -81,12 +81,7 @@
     }
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Discord",
-        "href": "https://discord.gg/YjKFvEZSdZ"
-      }
-    ],
+    "links": [],
     "primary": {
       "type": "button",
       "label": "Try Strix Cloud",
@@ -112,5 +107,8 @@
   "appearance": {
     "default": "system"
   },
-  "description": "Open-source AI Hackers to secure your Apps"
+  "description": "Open-source AI Hackers to secure your Apps",
+  "background": {
+    "decoration": "gradient"
+  }
 }
