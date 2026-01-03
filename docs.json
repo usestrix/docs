@@ -3,9 +3,9 @@
   "theme": "maple",
   "name": "Strix",
   "colors": {
-    "primary": "#22c55e",
-    "light": "#4ade80",
-    "dark": "#16a34a"
+    "primary": "#000000",
+    "light": "#ffffff",
+    "dark": "#000000"
   },
   "favicon": "/favicon.svg",
   "navigation": {
