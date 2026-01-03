@@ -1,68 +1,65 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Strix",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#22c55e",
+    "light": "#4ade80",
+    "dark": "#16a34a"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "quickstart"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Usage",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "usage/cli",
+              "usage/scan-modes",
+              "usage/instructions"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Tools",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "tools/overview",
+              "tools/browser",
+              "tools/proxy",
+              "tools/terminal"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Integrations",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "integrations/github-actions",
+              "integrations/ci-cd"
+            ]
+          },
+          {
+            "group": "Advanced",
+            "pages": [
+              "advanced/configuration",
+              "advanced/llm-providers"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Cloud",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Strix Cloud",
             "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "cloud/overview"
             ]
           }
         ]
@@ -71,14 +68,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "GitHub",
+          "href": "https://github.com/usestrix/strix",
+          "icon": "github"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Discord",
+          "href": "https://discord.gg/YjKFvEZSdZ",
+          "icon": "discord"
         }
       ]
     }
@@ -90,33 +87,21 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Discord",
+        "href": "https://discord.gg/YjKFvEZSdZ"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Try Strix Cloud",
+      "href": "https://app.usestrix.com"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/usestrix",
+      "github": "https://github.com/usestrix",
+      "discord": "https://discord.gg/YjKFvEZSdZ"
     }
   }
 }

@@ -1,0 +1,56 @@
+---
+title: "HTTP Proxy"
+description: "Intercept and manipulate HTTP traffic for security testing"
+---
+
+Strix includes a full HTTP proxy for traffic interception and manipulation.
+
+## Capabilities
+
+- **Request capture** — Log all HTTP traffic from the browser
+- **Request replay** — Repeat requests with modifications
+- **HTTPQL filtering** — Query traffic with Caido-style syntax
+- **Scope management** — Filter by domain or path patterns
+- **Sitemap generation** — Visualize discovered attack surface
+
+## Workflow
+
+1. **Browse** the target with the browser tool
+2. **List** captured requests with filters
+3. **Replay** interesting requests with modified parameters
+4. **Validate** vulnerabilities with crafted payloads
+
+## HTTPQL Examples
+
+```
+# POST requests to API endpoints
+req.method.regex:"POST" AND req.path.cont:"/api/"
+
+# Requests with specific response codes
+resp.code.gte:400
+
+# Filter by host
+req.host.regex:".*api.example.com"
+```
+
+## Scope Management
+
+Create scopes to focus on specific parts of the application:
+
+```
+# Allowlist
+["api.example.com", "*.example.com"]
+
+# Denylist (exclude static assets)
+["*.gif", "*.jpg", "*.png", "*.css", "*.js"]
+```
+
+## Key Features
+
+| Feature | Description |
+|---------|-------------|
+| Request modification | Change headers, body, cookies |
+| Response analysis | Search for patterns in responses |
+| Sitemap view | Hierarchical endpoint discovery |
+| Pagination | Handle large traffic captures |
+

@@ -1,0 +1,46 @@
+---
+title: "Browser"
+description: "Playwright-powered browser automation for security testing"
+---
+
+Strix uses a Playwright-controlled Chrome browser for testing client-side vulnerabilities.
+
+## Capabilities
+
+- **Multi-tab sessions** — Test multiple pages simultaneously
+- **JavaScript execution** — Run custom scripts in page context
+- **Form interaction** — Click, type, and navigate like a real user
+- **Screenshot capture** — Visual verification of exploits
+- **Console monitoring** — Capture JavaScript errors and logs
+
+## Use Cases
+
+### XSS Testing
+
+The browser can inject payloads and verify JavaScript execution in the DOM.
+
+### Authentication Flows
+
+Test login, session management, and OAuth flows by navigating through the actual UI.
+
+### CSRF Validation
+
+Open multiple tabs to test cross-site request forgery with different sessions.
+
+### DOM-Based Vulnerabilities
+
+Execute JavaScript to inspect and manipulate the DOM for client-side issues.
+
+## Key Features
+
+| Feature | Description |
+|---------|-------------|
+| Persistent sessions | Browser state maintained across actions |
+| Coordinate-based clicking | Precise element interaction |
+| PDF export | Save page states for reports |
+| Source viewing | Inspect rendered HTML |
+
+<Note>
+The browser runs in headless Chrome mode within the Docker sandbox.
+</Note>
+

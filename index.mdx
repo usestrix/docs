@@ -1,97 +1,45 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "Strix"
+description: "Open-source AI hackers to secure your apps"
 ---
 
-## Setting up
+Strix are autonomous AI agents that act like real hackers—they run your code dynamically, find vulnerabilities, and validate them with proof-of-concepts.
 
-Get your documentation site up and running in minutes.
-
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="Quick Start" icon="rocket" href="/quickstart">
+    Install and run your first scan in minutes.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="CLI Reference" icon="terminal" href="/usage/cli">
+    Learn all command-line options.
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
+  <Card title="Tools" icon="wrench" href="/tools/overview">
+    Explore the security testing toolkit.
   </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+  <Card title="GitHub Actions" icon="github" href="/integrations/github-actions">
+    Integrate into your CI/CD pipeline.
   </Card>
-</Columns>
+</CardGroup>
 
-## Create beautiful pages
+## Key Capabilities
 
-Everything you need to create world-class documentation.
+- **Full hacker toolkit** — Browser automation, HTTP proxy, terminal, Python runtime
+- **Real validation** — PoCs, not false positives
+- **Multi-agent orchestration** — Specialized agents collaborate on complex targets
+- **Developer-first CLI** — Interactive TUI or headless mode for automation
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+## Vulnerability Coverage
 
-## Need inspiration?
+Strix can identify and validate:
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+| Category | Examples |
+|----------|----------|
+| Access Control | IDOR, privilege escalation, auth bypass |
+| Injection | SQL, NoSQL, command injection |
+| Server-Side | SSRF, XXE, deserialization |
+| Client-Side | XSS, prototype pollution, DOM vulnerabilities |
+| Business Logic | Race conditions, workflow manipulation |
+| Authentication | JWT vulnerabilities, session management |
+
+<Warning>
+Only test applications you own or have explicit permission to test.
+</Warning>

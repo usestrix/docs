@@ -1,0 +1,68 @@
+---
+title: "Configuration"
+description: "Environment variables and settings for Strix"
+---
+
+Configure Strix using environment variables.
+
+## Required
+
+<ParamField path="STRIX_LLM" type="string" required>
+  Model name in LiteLLM format.
+  
+  ```bash
+  export STRIX_LLM="openai/gpt-5"
+  ```
+</ParamField>
+
+## Authentication
+
+<ParamField path="LLM_API_KEY" type="string">
+  API key for your LLM provider. Not required for local models or cloud provider auth (Vertex AI, AWS Bedrock).
+</ParamField>
+
+<ParamField path="LLM_API_BASE" type="string">
+  Custom API base URL for local models.
+  
+  ```bash
+  export LLM_API_BASE="http://localhost:11434"
+  ```
+</ParamField>
+
+## Optional
+
+<ParamField path="LLM_TIMEOUT" type="integer" default="300">
+  Request timeout in seconds.
+</ParamField>
+
+<ParamField path="PERPLEXITY_API_KEY" type="string">
+  API key for Perplexity AI web search. Enables real-time OSINT during scans.
+</ParamField>
+
+## Example Setup
+
+```bash
+# OpenAI
+export STRIX_LLM="openai/gpt-5"
+export LLM_API_KEY="sk-..."
+
+# Anthropic
+export STRIX_LLM="anthropic/claude-sonnet-4-5"
+export LLM_API_KEY="sk-ant-..."
+
+# Local (Ollama)
+export STRIX_LLM="ollama/llama3"
+export LLM_API_BASE="http://localhost:11434"
+
+# Optional: Enable web search
+export PERPLEXITY_API_KEY="pplx-..."
+```
+
+## Output Directory
+
+Results are saved to `strix_runs/<run-name>/` containing:
+
+- Vulnerability reports
+- Scan logs
+- Evidence and screenshots
+

@@ -1,0 +1,62 @@
+---
+title: "Terminal"
+description: "Persistent shell sessions for command execution"
+---
+
+Strix has access to a persistent bash terminal for running commands and scripts.
+
+## Capabilities
+
+- **Persistent state** — Environment variables and directory persist across commands
+- **Multiple sessions** — Run concurrent terminal sessions
+- **Interactive processes** — Interact with REPLs and prompts
+- **Background jobs** — Run long-running processes without blocking
+
+## Use Cases
+
+### Reconnaissance
+
+```bash
+# DNS enumeration
+dig example.com ANY
+
+# Subdomain discovery
+subfinder -d example.com
+
+# Port scanning
+nmap -sV target.com
+```
+
+### Exploitation
+
+```bash
+# SQL injection tools
+sqlmap -u "http://target.com/page?id=1"
+
+# Custom scripts
+python3 exploit.py
+```
+
+### Code Analysis
+
+```bash
+# Search for patterns
+grep -r "password" ./src
+
+# Find hardcoded secrets
+trufflehog filesystem ./
+```
+
+## Key Features
+
+| Feature | Description |
+|---------|-------------|
+| Timeout control | Set max wait time per command |
+| Special keys | Send Ctrl+C, Ctrl+D, arrow keys |
+| Output handling | Large outputs automatically truncated |
+| Working directory tracking | Always know current location |
+
+<Tip>
+For long-running commands, append `&` to run in background.
+</Tip>
+

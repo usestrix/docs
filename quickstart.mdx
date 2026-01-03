@@ -1,80 +1,81 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: "Quick Start"
+description: "Install Strix and run your first security scan"
 ---
 
-## Get started in three steps
+## Prerequisites
 
-Get your documentation site running locally and make your first customization.
+- Docker (running)
+- An LLM provider API key (OpenAI, Anthropic, or local model)
 
-### Step 1: Set up your local environment
+## Installation
 
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
+<Tabs>
+  <Tab title="curl">
+    ```bash
+    curl -sSL https://strix.ai/install | bash
+    ```
+  </Tab>
+  <Tab title="pipx">
+    ```bash
+    pipx install strix-agent
+    ```
+  </Tab>
+  <Tab title="pip">
+    ```bash
+    pip install strix-agent
+    ```
+  </Tab>
+</Tabs>
 
-### Step 2: Deploy your changes
+## Configuration
 
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
+Set your LLM provider:
 
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
+```bash
+export STRIX_LLM="openai/gpt-5"
+export LLM_API_KEY="your-api-key"
+```
 
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
+<Tip>
+For best results, use `openai/gpt-5` or `anthropic/claude-sonnet-4-5`.
+</Tip>
 
-### Step 3: Go live
+## Run Your First Scan
 
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
-
-## Next steps
-
-Now that you have your docs running, explore these key features:
-
-<CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
-</CardGroup>
+```bash
+strix --target ./your-app
+```
 
 <Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
+First run pulls the Docker sandbox image automatically. Results are saved to `strix_runs/<run-name>`.
 </Note>
+
+## Target Types
+
+Strix accepts multiple target types:
+
+```bash
+# Local codebase
+strix --target ./app-directory
+
+# GitHub repository
+strix --target https://github.com/org/repo
+
+# Live web application
+strix --target https://your-app.com
+
+# Multiple targets (white-box testing)
+strix -t https://github.com/org/repo -t https://your-app.com
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="CLI Options" icon="terminal" href="/usage/cli">
+    Explore all command-line options.
+  </Card>
+  <Card title="Scan Modes" icon="gauge" href="/usage/scan-modes">
+    Choose the right scan depth.
+  </Card>
+</CardGroup>

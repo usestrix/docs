@@ -1,0 +1,44 @@
+---
+title: "Tools Overview"
+description: "Security testing toolkit available to Strix agents"
+---
+
+Strix agents have access to a comprehensive security testing toolkit.
+
+## Available Tools
+
+<CardGroup cols={2}>
+  <Card title="Browser" icon="globe" href="/tools/browser">
+    Multi-tab Playwright browser for testing XSS, CSRF, and auth flows.
+  </Card>
+  <Card title="HTTP Proxy" icon="network-wired" href="/tools/proxy">
+    Full request/response interception and manipulation.
+  </Card>
+  <Card title="Terminal" icon="terminal" href="/tools/terminal">
+    Persistent shell sessions for command execution.
+  </Card>
+  <Card title="Python Runtime" icon="python">
+    Custom exploit development and validation scripts.
+  </Card>
+</CardGroup>
+
+## Additional Capabilities
+
+| Tool | Description |
+|------|-------------|
+| File Editor | Read and modify source code |
+| Web Search | Real-time OSINT and research |
+| Notes | Structured attack documentation |
+| Reporting | Vulnerability report generation |
+| TODO | Task tracking during complex scans |
+
+## How Tools Work
+
+Strix runs inside a Docker sandbox. Each tool operates within this isolated environment, allowing the agent to:
+
+1. **Browse** target applications like a real user
+2. **Intercept** and modify HTTP traffic
+3. **Execute** commands and scripts
+4. **Analyze** source code for vulnerabilities
+5. **Validate** findings with working PoCs
+
