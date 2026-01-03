@@ -80,10 +80,7 @@
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
+  "logo": "/logo/light.svg",
   "navbar": {
     "links": [
       {
@@ -103,5 +100,8 @@
       "github": "https://github.com/usestrix",
       "discord": "https://discord.gg/YjKFvEZSdZ"
     }
+  },
+  "fonts": {
+    "family": "Geist"
   }
 }
