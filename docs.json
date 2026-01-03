@@ -1,13 +1,16 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "venus",
   "name": "Strix",
   "colors": {
     "primary": "#22c55e",
     "light": "#4ade80",
-    "dark": "#16a34a"
+    "dark": "#16a34a",
+    "background": {
+      "dark": "#0a0a0a"
+    }
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logo/strix.png",
   "navigation": {
     "tabs": [
       {
@@ -81,8 +84,8 @@
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/strix.png",
+    "dark": "/logo/strix.png"
   },
   "navbar": {
     "links": [
