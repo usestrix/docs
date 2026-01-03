@@ -7,28 +7,17 @@ Strix includes [Caido](https://caido.io), a modern HTTP proxy built for security
 
 ## Capabilities
 
-| Feature | Description |
-|---------|-------------|
-| Request Capture | Log all HTTP/HTTPS traffic automatically |
-| Request Replay | Repeat any request with modifications |
-| HTTPQL | Query captured traffic with powerful filters |
-| Scope Management | Focus on specific domains or paths |
-| Sitemap | Visualize the discovered attack surface |
+| Feature          | Description                                  |
+| ---------------- | -------------------------------------------- |
+| Request Capture  | Log all HTTP/HTTPS traffic automatically     |
+| Request Replay   | Repeat any request with modifications        |
+| HTTPQL           | Query captured traffic with powerful filters |
+| Scope Management | Focus on specific domains or paths           |
+| Sitemap          | Visualize the discovered attack surface      |
 
 ## HTTPQL Filtering
 
-Query captured requests using Caido's HTTPQL syntax:
-
-```
-# Find all POST requests to API endpoints
-req.method.eq:"POST" AND req.path.cont:"/api/"
-
-# Find requests with error responses
-resp.code.gte:400
-
-# Find requests to specific host
-req.host.regex:".*api.example.com"
-```
+Query captured requests using Caido's HTTPQL syntax
 
 ## Request Replay
 
@@ -62,15 +51,15 @@ print(f"Status: {response['status_code']}")
 
 ### Available Functions
 
-| Function | Description |
-|----------|-------------|
-| `list_requests()` | Query captured traffic with HTTPQL filters |
-| `view_request()` | Get full request/response details |
-| `repeat_request()` | Replay a request with modifications |
-| `send_request()` | Send a new HTTP request |
-| `scope_rules()` | Manage proxy scope (allowlist/denylist) |
-| `list_sitemap()` | View discovered endpoints |
-| `view_sitemap_entry()` | Get details for a sitemap entry |
+| Function               | Description                                |
+| ---------------------- | ------------------------------------------ |
+| `list_requests()`      | Query captured traffic with HTTPQL filters |
+| `view_request()`       | Get full request/response details          |
+| `repeat_request()`     | Replay a request with modifications        |
+| `send_request()`       | Send a new HTTP request                    |
+| `scope_rules()`        | Manage proxy scope (allowlist/denylist)    |
+| `list_sitemap()`       | View discovered endpoints                  |
+| `view_sitemap_entry()` | Get details for a sitemap entry            |
 
 ### Example: Automated IDOR Testing
 
@@ -99,12 +88,3 @@ Create scopes to filter traffic to relevant domains:
 Allowlist: ["api.example.com", "*.example.com"]
 Denylist: ["*.gif", "*.jpg", "*.png", "*.css", "*.js"]
 ```
-
-## Why Caido?
-
-Caido is purpose-built for web security testing with:
-
-- Native HTTPS interception with automatic certificate handling
-- GraphQL API for programmatic access
-- Modern architecture that handles high traffic volumes
-- Built-in sitemap generation from observed traffic
