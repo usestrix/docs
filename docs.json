@@ -112,8 +112,5 @@
   "appearance": {
     "default": "system"
   },
-  "description": "Open-source AI Hackers to secure your Apps",
-  "background": {
-    "decoration": "windows"
-  }
+  "description": "Open-source AI Hackers to secure your Apps"
 }
