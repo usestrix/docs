@@ -6,7 +6,7 @@ description: "Configure Strix with models via AWS Bedrock"
 ## Setup
 
 ```bash
-export STRIX_LLM="bedrock/anthropic.claude-3-sonnet-20240229-v1:0"
+export STRIX_LLM="bedrock/anthropic.claude-4-5-sonnet-20251022-v1:0"
 ```
 
 No API key required—uses AWS credentials from environment.
@@ -36,13 +36,12 @@ Automatically uses instance role credentials.
 
 | Model | Description |
 |-------|-------------|
-| `bedrock/anthropic.claude-3-sonnet-20240229-v1:0` | Claude Sonnet |
-| `bedrock/anthropic.claude-3-opus-20240229-v1:0` | Claude Opus |
-| `bedrock/anthropic.claude-3-haiku-20240307-v1:0` | Claude Haiku (fast) |
-| `bedrock/amazon.titan-text-premier-v1:0` | Amazon Titan |
+| `bedrock/anthropic.claude-4-5-sonnet-20251022-v1:0` | Claude 4.5 Sonnet |
+| `bedrock/anthropic.claude-4-5-opus-20251022-v1:0` | Claude 4.5 Opus |
+| `bedrock/anthropic.claude-4-5-haiku-20251022-v1:0` | Claude 4.5 Haiku |
+| `bedrock/amazon.titan-text-premier-v2:0` | Amazon Titan Premier v2 |
 
 ## Prerequisites
 
 1. Enable model access in the AWS Bedrock console
 2. Ensure your IAM role/user has `bedrock:InvokeModel` permission
-

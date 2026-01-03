@@ -3,10 +3,18 @@ title: "Google Vertex AI"
 description: "Configure Strix with Gemini models via Google Cloud"
 ---
 
+## Installation
+
+Vertex AI requires the Google Cloud dependency. Install Strix with the vertex extra:
+
+```bash
+pipx install "strix-agent[vertex]"
+```
+
 ## Setup
 
 ```bash
-export STRIX_LLM="vertex_ai/gemini-2.0-flash"
+export STRIX_LLM="vertex_ai/gemini-3-pro-preview"
 ```
 
 No API key required—uses Google Cloud Application Default Credentials.
@@ -29,9 +37,8 @@ export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service-account.json"
 
 | Model | Description |
 |-------|-------------|
-| `vertex_ai/gemini-2.0-flash` | Fast and capable |
-| `vertex_ai/gemini-1.5-pro` | High capability |
-| `vertex_ai/gemini-1.5-flash` | Balanced speed/capability |
+| `vertex_ai/gemini-3-pro-preview` | Best overall performance for security testing |
+| `vertex_ai/gemini-3-flash-preview` | Faster and cheaper |
 
 ## Project Configuration
 
@@ -44,4 +51,3 @@ export VERTEXAI_LOCATION="us-central1"
 
 1. Enable the Vertex AI API in your Google Cloud project
 2. Ensure your account has the `Vertex AI User` role
-

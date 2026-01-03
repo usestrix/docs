@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "LLM Providers"
 description: "Configure your AI model for Strix"
 ---
 
@@ -9,10 +9,11 @@ Strix uses [LiteLLM](https://docs.litellm.ai/docs/providers) for model compatibi
 
 For best results, use one of these models:
 
-| Model             | Provider  | Configuration                 |
-| ----------------- | --------- | ----------------------------- |
-| GPT-5             | OpenAI    | `openai/gpt-5`                |
-| Claude Sonnet 4.5 | Anthropic | `anthropic/claude-sonnet-4-5` |
+| Model | Provider | Configuration |
+|-------|----------|---------------|
+| GPT-5 | OpenAI | `openai/gpt-5` |
+| Claude 4.5 Sonnet | Anthropic | `anthropic/claude-sonnet-4-5` |
+| Gemini 3 Pro | Google Vertex | `vertex_ai/gemini-3-pro-preview` |
 
 ## Quick Setup
 
@@ -25,25 +26,25 @@ export LLM_API_KEY="your-api-key"
 
 <CardGroup cols={2}>
   <Card title="OpenAI" href="/llm-providers/openai">
-    GPT-5, GPT-4o, and other OpenAI models.
+    GPT-5 and Codex models.
   </Card>
   <Card title="Anthropic" href="/llm-providers/anthropic">
-    Claude Sonnet 4.5, Claude Opus, and other Claude models.
+    Claude 4.5 Sonnet, Opus, and Haiku.
   </Card>
   <Card title="OpenRouter" href="/llm-providers/openrouter">
     Access 100+ models through a single API.
   </Card>
   <Card title="Google Vertex AI" href="/llm-providers/vertex">
-    Gemini models via Google Cloud.
+    Gemini 3 models via Google Cloud.
   </Card>
   <Card title="AWS Bedrock" href="/llm-providers/bedrock">
-    Claude and other models via AWS.
+    Claude 4.5 and Titan models via AWS.
   </Card>
   <Card title="Azure OpenAI" href="/llm-providers/azure">
-    OpenAI models via Azure.
+    GPT-5 via Azure.
   </Card>
   <Card title="Local Models" href="/llm-providers/local">
-    Ollama, LM Studio, and self-hosted models.
+    Llama 4, Mistral, and self-hosted models.
   </Card>
 </CardGroup>
 
@@ -54,7 +55,7 @@ Use LiteLLM's `provider/model-name` format:
 ```
 openai/gpt-5
 anthropic/claude-sonnet-4-5
-vertex_ai/gemini-2.0-flash
-bedrock/anthropic.claude-3-sonnet-20240229-v1:0
-ollama/llama3
+vertex_ai/gemini-3-pro-preview
+bedrock/anthropic.claude-4-5-sonnet-20251022-v1:0
+ollama/llama4
 ```
