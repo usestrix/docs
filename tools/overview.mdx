@@ -22,22 +22,12 @@ Strix agents use specialized tools to test your applications like a real penetra
   </Card>
 </CardGroup>
 
-## Additional Capabilities
+## Additional Tools
 
-| Tool | Purpose |
-|------|---------|
+| Tool           | Purpose                                  |
+| -------------- | ---------------------------------------- |
 | Python Runtime | Write and execute custom exploit scripts |
-| File Editor | Read and modify source code |
-| Web Search | Real-time OSINT via Perplexity |
-| Notes | Document findings during the scan |
-| Reporting | Generate vulnerability reports with PoCs |
-
-## How It Works
-
-Strix runs inside a Docker container with a full Kali Linux environment. The agent:
-
-1. **Browses** your application through Chrome, with all traffic routed through the proxy
-2. **Analyzes** captured requests to identify interesting endpoints
-3. **Replays** requests with modified payloads to test for vulnerabilities
-4. **Validates** findings using terminal tools and custom scripts
-5. **Reports** confirmed vulnerabilities with proof-of-concepts
+| File Editor    | Read and modify source code              |
+| Web Search     | Real-time OSINT via Perplexity           |
+| Notes          | Document findings during the scan        |
+| Reporting      | Generate vulnerability reports with PoCs |
