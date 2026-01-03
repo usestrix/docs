@@ -1,0 +1,61 @@
+---
+title: "LLM Providers"
+description: "Configure your AI model for Strix"
+---
+
+Strix uses [LiteLLM](https://docs.litellm.ai/docs/providers) for model compatibility, supporting 100+ LLM providers.
+
+## Recommended Models
+
+For best results, use one of these models:
+
+| Model | Provider | Configuration |
+|-------|----------|---------------|
+| GPT-5 | OpenAI | `openai/gpt-5` |
+| Claude Sonnet 4.5 | Anthropic | `anthropic/claude-sonnet-4-5` |
+
+## Quick Setup
+
+```bash
+export STRIX_LLM="openai/gpt-5"
+export LLM_API_KEY="your-api-key"
+```
+
+## Provider Guides
+
+<CardGroup cols={2}>
+  <Card title="OpenAI" icon="message-bot" href="/llm-providers/openai">
+    GPT-5, GPT-4o, and other OpenAI models.
+  </Card>
+  <Card title="Anthropic" icon="a" href="/llm-providers/anthropic">
+    Claude Sonnet 4.5, Claude Opus, and other Claude models.
+  </Card>
+  <Card title="OpenRouter" icon="route" href="/llm-providers/openrouter">
+    Access 100+ models through a single API.
+  </Card>
+  <Card title="Google Vertex AI" icon="google" href="/llm-providers/vertex">
+    Gemini models via Google Cloud.
+  </Card>
+  <Card title="AWS Bedrock" icon="aws" href="/llm-providers/bedrock">
+    Claude and other models via AWS.
+  </Card>
+  <Card title="Azure OpenAI" icon="microsoft" href="/llm-providers/azure">
+    OpenAI models via Azure.
+  </Card>
+  <Card title="Local Models" icon="server" href="/llm-providers/local">
+    Ollama, LM Studio, and self-hosted models.
+  </Card>
+</CardGroup>
+
+## Model Format
+
+Use LiteLLM's `provider/model-name` format:
+
+```
+openai/gpt-5
+anthropic/claude-sonnet-4-5
+vertex_ai/gemini-2.0-flash
+bedrock/anthropic.claude-3-sonnet-20240229-v1:0
+ollama/llama3
+```
+

@@ -1,68 +1,92 @@
 ---
 title: "Configuration"
-description: "Environment variables and settings for Strix"
+description: "Environment variables for Strix"
 ---
 
 Configure Strix using environment variables.
 
-## Required
+## LLM Configuration
 
 <ParamField path="STRIX_LLM" type="string" required>
-  Model name in LiteLLM format.
-  
-  ```bash
-  export STRIX_LLM="openai/gpt-5"
-  ```
+  Model name in LiteLLM format (e.g., `openai/gpt-5`, `anthropic/claude-sonnet-4-5`).
 </ParamField>
-
-## Authentication
 
 <ParamField path="LLM_API_KEY" type="string">
   API key for your LLM provider. Not required for local models or cloud provider auth (Vertex AI, AWS Bedrock).
 </ParamField>
 
 <ParamField path="LLM_API_BASE" type="string">
-  Custom API base URL for local models.
-  
-  ```bash
-  export LLM_API_BASE="http://localhost:11434"
-  ```
+  Custom API base URL. Also accepts `OPENAI_API_BASE`, `LITELLM_BASE_URL`, or `OLLAMA_API_BASE`.
 </ParamField>
-
-## Optional
 
 <ParamField path="LLM_TIMEOUT" type="integer" default="300">
-  Request timeout in seconds.
+  Request timeout in seconds for LLM calls.
 </ParamField>
 
+<ParamField path="LLM_RATE_LIMIT_DELAY" type="float">
+  Delay in seconds between LLM requests for rate limiting.
+</ParamField>
+
+<ParamField path="LLM_RATE_LIMIT_CONCURRENT" type="integer">
+  Maximum concurrent LLM requests.
+</ParamField>
+
+## Optional Features
+
 <ParamField path="PERPLEXITY_API_KEY" type="string">
-  API key for Perplexity AI web search. Enables real-time OSINT during scans.
+  API key for Perplexity AI. Enables real-time web search during scans for OSINT and vulnerability research.
+</ParamField>
+
+## Docker Configuration
+
+<ParamField path="STRIX_IMAGE" type="string" default="ghcr.io/usestrix/strix-sandbox:0.1.10">
+  Docker image to use for the sandbox container.
+</ParamField>
+
+<ParamField path="DOCKER_HOST" type="string">
+  Docker daemon socket path. Use for remote Docker hosts or custom configurations.
+</ParamField>
+
+<ParamField path="STRIX_RUNTIME_BACKEND" type="string" default="docker">
+  Runtime backend for the sandbox environment.
+</ParamField>
+
+## Sandbox Configuration
+
+<ParamField path="STRIX_SANDBOX_EXECUTION_TIMEOUT" type="float" default="500">
+  Maximum execution time in seconds for sandbox operations.
+</ParamField>
+
+<ParamField path="STRIX_SANDBOX_CONNECT_TIMEOUT" type="float" default="10">
+  Timeout in seconds for connecting to the sandbox container.
+</ParamField>
+
+<ParamField path="STRIX_DISABLE_BROWSER" type="boolean" default="false">
+  Disable browser tool. Set to `true` if you only need terminal-based testing.
 </ParamField>
 
 ## Example Setup
 
 ```bash
-# OpenAI
+# Required
 export STRIX_LLM="openai/gpt-5"
 export LLM_API_KEY="sk-..."
 
-# Anthropic
-export STRIX_LLM="anthropic/claude-sonnet-4-5"
-export LLM_API_KEY="sk-ant-..."
-
-# Local (Ollama)
-export STRIX_LLM="ollama/llama3"
-export LLM_API_BASE="http://localhost:11434"
-
 # Optional: Enable web search
 export PERPLEXITY_API_KEY="pplx-..."
+
+# Optional: Custom timeouts
+export LLM_TIMEOUT="600"
+export STRIX_SANDBOX_EXECUTION_TIMEOUT="1000"
+
+# Optional: Use custom Docker image
+export STRIX_IMAGE="ghcr.io/usestrix/strix-sandbox:latest"
 ```
 
 ## Output Directory
 
 Results are saved to `strix_runs/<run-name>/` containing:
 
-- Vulnerability reports
-- Scan logs
-- Evidence and screenshots
-
+- Vulnerability reports (JSON and Markdown)
+- Scan logs and agent traces
+- Screenshots and evidence files

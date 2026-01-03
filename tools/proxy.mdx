@@ -1,56 +1,110 @@
 ---
 title: "HTTP Proxy"
-description: "Intercept and manipulate HTTP traffic for security testing"
+description: "Caido-powered proxy for request interception and replay"
 ---
 
-Strix includes a full HTTP proxy for traffic interception and manipulation.
+Strix includes [Caido](https://caido.io), a modern HTTP proxy built for security testing. All browser traffic flows through Caido, giving the agent full control over requests and responses.
 
 ## Capabilities
 
-- **Request capture** — Log all HTTP traffic from the browser
-- **Request replay** — Repeat requests with modifications
-- **HTTPQL filtering** — Query traffic with Caido-style syntax
-- **Scope management** — Filter by domain or path patterns
-- **Sitemap generation** — Visualize discovered attack surface
+| Feature | Description |
+|---------|-------------|
+| Request Capture | Log all HTTP/HTTPS traffic automatically |
+| Request Replay | Repeat any request with modifications |
+| HTTPQL | Query captured traffic with powerful filters |
+| Scope Management | Focus on specific domains or paths |
+| Sitemap | Visualize the discovered attack surface |
 
-## Workflow
+## HTTPQL Filtering
 
-1. **Browse** the target with the browser tool
-2. **List** captured requests with filters
-3. **Replay** interesting requests with modified parameters
-4. **Validate** vulnerabilities with crafted payloads
-
-## HTTPQL Examples
+Query captured requests using Caido's HTTPQL syntax:
 
 ```
-# POST requests to API endpoints
-req.method.regex:"POST" AND req.path.cont:"/api/"
+# Find all POST requests to API endpoints
+req.method.eq:"POST" AND req.path.cont:"/api/"
 
-# Requests with specific response codes
+# Find requests with error responses
 resp.code.gte:400
 
-# Filter by host
+# Find requests to specific host
 req.host.regex:".*api.example.com"
 ```
 
-## Scope Management
+## Request Replay
 
-Create scopes to focus on specific parts of the application:
+The agent can take any captured request and replay it with modifications:
+
+- Change path parameters (test for IDOR)
+- Modify request body (test for injection)
+- Add/remove headers (test for auth bypass)
+- Alter cookies (test for session issues)
+
+## Python Integration
+
+All proxy functions are automatically available in Python sessions. This enables powerful scripted security testing:
+
+```python
+# List recent POST requests
+post_requests = list_requests(
+    httpql_filter='req.method.eq:"POST"',
+    page_size=20
+)
+
+# View a specific request
+request_details = view_request("req_123", part="request")
+
+# Replay with modified payload
+response = repeat_request("req_123", {
+    "body": '{"user_id": "admin"}'
+})
+print(f"Status: {response['status_code']}")
+```
+
+### Available Functions
+
+| Function | Description |
+|----------|-------------|
+| `list_requests()` | Query captured traffic with HTTPQL filters |
+| `view_request()` | Get full request/response details |
+| `repeat_request()` | Replay a request with modifications |
+| `send_request()` | Send a new HTTP request |
+| `scope_rules()` | Manage proxy scope (allowlist/denylist) |
+| `list_sitemap()` | View discovered endpoints |
+| `view_sitemap_entry()` | Get details for a sitemap entry |
+
+### Example: Automated IDOR Testing
+
+```python
+# Get all requests to user endpoints
+user_requests = list_requests(
+    httpql_filter='req.path.cont:"/users/"'
+)
+
+for req in user_requests.get('requests', []):
+    # Try accessing with different user IDs
+    for test_id in ['1', '2', 'admin', '../admin']:
+        response = repeat_request(req['id'], {
+            'url': req['path'].replace('/users/1', f'/users/{test_id}')
+        })
+        
+        if response['status_code'] == 200:
+            print(f"Potential IDOR: {test_id} returned 200")
+```
+
+## Scope
+
+Create scopes to filter traffic to relevant domains:
 
 ```
-# Allowlist
-["api.example.com", "*.example.com"]
-
-# Denylist (exclude static assets)
-["*.gif", "*.jpg", "*.png", "*.css", "*.js"]
+Allowlist: ["api.example.com", "*.example.com"]
+Denylist: ["*.gif", "*.jpg", "*.png", "*.css", "*.js"]
 ```
 
-## Key Features
+## Why Caido?
 
-| Feature | Description |
-|---------|-------------|
-| Request modification | Change headers, body, cookies |
-| Response analysis | Search for patterns in responses |
-| Sitemap view | Hierarchical endpoint discovery |
-| Pagination | Handle large traffic captures |
+Caido is purpose-built for web security testing with:
 
+- Native HTTPS interception with automatic certificate handling
+- GraphQL API for programmatic access
+- Modern architecture that handles high traffic volumes
+- Built-in sitemap generation from observed traffic

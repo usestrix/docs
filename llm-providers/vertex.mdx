@@ -1,0 +1,47 @@
+---
+title: "Google Vertex AI"
+description: "Configure Strix with Gemini models via Google Cloud"
+---
+
+## Setup
+
+```bash
+export STRIX_LLM="vertex_ai/gemini-2.0-flash"
+```
+
+No API key required—uses Google Cloud Application Default Credentials.
+
+## Authentication
+
+### Option 1: gcloud CLI
+
+```bash
+gcloud auth application-default login
+```
+
+### Option 2: Service Account
+
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service-account.json"
+```
+
+## Available Models
+
+| Model | Description |
+|-------|-------------|
+| `vertex_ai/gemini-2.0-flash` | Fast and capable |
+| `vertex_ai/gemini-1.5-pro` | High capability |
+| `vertex_ai/gemini-1.5-flash` | Balanced speed/capability |
+
+## Project Configuration
+
+```bash
+export VERTEXAI_PROJECT="your-project-id"
+export VERTEXAI_LOCATION="us-central1"
+```
+
+## Prerequisites
+
+1. Enable the Vertex AI API in your Google Cloud project
+2. Ensure your account has the `Vertex AI User` role
+

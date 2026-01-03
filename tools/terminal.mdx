@@ -1,62 +1,61 @@
 ---
 title: "Terminal"
-description: "Persistent shell sessions for command execution"
+description: "Bash shell for running commands and security tools"
 ---
 
-Strix has access to a persistent bash terminal for running commands and scripts.
+Strix has access to a persistent bash terminal running inside the Docker sandbox. This gives the agent access to all [pre-installed security tools](/tools/sandbox).
 
 ## Capabilities
 
-- **Persistent state** — Environment variables and directory persist across commands
-- **Multiple sessions** — Run concurrent terminal sessions
-- **Interactive processes** — Interact with REPLs and prompts
-- **Background jobs** — Run long-running processes without blocking
+| Feature | Description |
+|---------|-------------|
+| Persistent state | Working directory and environment persist between commands |
+| Multiple sessions | Run parallel terminals for concurrent operations |
+| Background jobs | Start long-running processes without blocking |
+| Interactive | Respond to prompts and control running processes |
 
-## Use Cases
+## Common Uses
 
-### Reconnaissance
+### Running Security Tools
 
 ```bash
-# DNS enumeration
-dig example.com ANY
-
-# Subdomain discovery
+# Subdomain enumeration
 subfinder -d example.com
 
-# Port scanning
-nmap -sV target.com
-```
+# Vulnerability scanning
+nuclei -u https://example.com
 
-### Exploitation
-
-```bash
-# SQL injection tools
-sqlmap -u "http://target.com/page?id=1"
-
-# Custom scripts
-python3 exploit.py
+# SQL injection testing
+sqlmap -u "https://example.com/page?id=1"
 ```
 
 ### Code Analysis
 
 ```bash
-# Search for patterns
-grep -r "password" ./src
-
-# Find hardcoded secrets
+# Search for secrets
 trufflehog filesystem ./
+
+# Static analysis
+semgrep --config auto ./src
+
+# Grep for patterns
+grep -r "password" ./
 ```
 
-## Key Features
+### Custom Scripts
 
-| Feature | Description |
-|---------|-------------|
-| Timeout control | Set max wait time per command |
-| Special keys | Send Ctrl+C, Ctrl+D, arrow keys |
-| Output handling | Large outputs automatically truncated |
-| Working directory tracking | Always know current location |
+```bash
+# Run Python exploits
+python3 exploit.py
 
-<Tip>
-For long-running commands, append `&` to run in background.
-</Tip>
+# Execute shell scripts
+./test_auth_bypass.sh
+```
 
+## Session Management
+
+The agent can run multiple terminal sessions concurrently:
+
+- Main session for primary testing
+- Secondary session for monitoring
+- Background processes for servers or watchers

@@ -34,7 +34,21 @@
               "tools/overview",
               "tools/browser",
               "tools/proxy",
-              "tools/terminal"
+              "tools/terminal",
+              "tools/sandbox"
+            ]
+          },
+          {
+            "group": "LLM Providers",
+            "pages": [
+              "llm-providers/index",
+              "llm-providers/openai",
+              "llm-providers/anthropic",
+              "llm-providers/openrouter",
+              "llm-providers/vertex",
+              "llm-providers/bedrock",
+              "llm-providers/azure",
+              "llm-providers/local"
             ]
           },
           {
@@ -48,7 +62,8 @@
             "group": "Advanced",
             "pages": [
               "advanced/configuration",
-              "advanced/llm-providers"
+              "advanced/prompt-modules",
+              "contributing"
             ]
           }
         ]

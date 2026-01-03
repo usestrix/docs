@@ -1,44 +1,43 @@
 ---
-title: "Tools Overview"
-description: "Security testing toolkit available to Strix agents"
+title: "Agent Tools"
+description: "How Strix agents interact with targets"
 ---
 
-Strix agents have access to a comprehensive security testing toolkit.
+Strix agents use specialized tools to test your applications like a real penetration tester would.
 
-## Available Tools
+## Core Tools
 
 <CardGroup cols={2}>
   <Card title="Browser" icon="globe" href="/tools/browser">
-    Multi-tab Playwright browser for testing XSS, CSRF, and auth flows.
+    Playwright-powered Chrome for interacting with web UIs.
   </Card>
   <Card title="HTTP Proxy" icon="network-wired" href="/tools/proxy">
-    Full request/response interception and manipulation.
+    Caido-powered proxy for intercepting and replaying requests.
   </Card>
   <Card title="Terminal" icon="terminal" href="/tools/terminal">
-    Persistent shell sessions for command execution.
+    Bash shell for running commands and security tools.
   </Card>
-  <Card title="Python Runtime" icon="python">
-    Custom exploit development and validation scripts.
+  <Card title="Sandbox Tools" icon="toolbox" href="/tools/sandbox">
+    Pre-installed security tools: Nuclei, SQLMap, and more.
   </Card>
 </CardGroup>
 
 ## Additional Capabilities
 
-| Tool | Description |
-|------|-------------|
+| Tool | Purpose |
+|------|---------|
+| Python Runtime | Write and execute custom exploit scripts |
 | File Editor | Read and modify source code |
-| Web Search | Real-time OSINT and research |
-| Notes | Structured attack documentation |
-| Reporting | Vulnerability report generation |
-| TODO | Task tracking during complex scans |
+| Web Search | Real-time OSINT via Perplexity |
+| Notes | Document findings during the scan |
+| Reporting | Generate vulnerability reports with PoCs |
 
-## How Tools Work
+## How It Works
 
-Strix runs inside a Docker sandbox. Each tool operates within this isolated environment, allowing the agent to:
+Strix runs inside a Docker container with a full Kali Linux environment. The agent:
 
-1. **Browse** target applications like a real user
-2. **Intercept** and modify HTTP traffic
-3. **Execute** commands and scripts
-4. **Analyze** source code for vulnerabilities
-5. **Validate** findings with working PoCs
-
+1. **Browses** your application through Chrome, with all traffic routed through the proxy
+2. **Analyzes** captured requests to identify interesting endpoints
+3. **Replays** requests with modified payloads to test for vulnerabilities
+4. **Validates** findings using terminal tools and custom scripts
+5. **Reports** confirmed vulnerabilities with proof-of-concepts

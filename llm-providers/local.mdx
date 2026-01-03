@@ -1,0 +1,64 @@
+---
+title: "Local Models"
+description: "Run Strix with self-hosted LLMs"
+---
+
+Run Strix with locally hosted models using Ollama, LM Studio, or any OpenAI-compatible server.
+
+<Warning>
+Local models may have reduced performance compared to GPT-5 or Claude. Test thoroughly before using for critical assessments.
+</Warning>
+
+## Ollama
+
+### Setup
+
+1. Install Ollama from [ollama.ai](https://ollama.ai)
+2. Pull a model:
+   ```bash
+   ollama pull llama3
+   ```
+3. Configure Strix:
+   ```bash
+   export STRIX_LLM="ollama/llama3"
+   export LLM_API_BASE="http://localhost:11434"
+   ```
+
+### Recommended Models
+
+| Model | Command |
+|-------|---------|
+| Llama 3 70B | `ollama pull llama3:70b` |
+| Llama 3 8B | `ollama pull llama3` |
+| Mixtral | `ollama pull mixtral` |
+| CodeLlama | `ollama pull codellama` |
+
+## LM Studio
+
+1. Download from [lmstudio.ai](https://lmstudio.ai)
+2. Load a model and start the local server
+3. Configure Strix:
+   ```bash
+   export STRIX_LLM="openai/local-model"
+   export LLM_API_BASE="http://localhost:1234/v1"
+   ```
+
+## vLLM
+
+For high-performance inference:
+
+```bash
+export STRIX_LLM="openai/your-model"
+export LLM_API_BASE="http://localhost:8000/v1"
+```
+
+## OpenAI-Compatible Servers
+
+Any server implementing the OpenAI API format:
+
+```bash
+export STRIX_LLM="openai/model-name"
+export LLM_API_BASE="http://your-server:port/v1"
+export LLM_API_KEY="your-key"  # if required
+```
+
