@@ -7,7 +7,7 @@ Prompt modules are structured knowledge packages that give Strix agents deep exp
 
 ## The Insight
 
-LLMs have broad but shallow security knowledge. They know *about* SQL injection, but lack the nuanced techniques that experienced pentesters use—parser quirks, bypass methods, validation tricks, and chain attacks.
+LLMs have broad but shallow security knowledge. They know _about_ SQL injection, but lack the nuanced techniques that experienced pentesters use—parser quirks, bypass methods, validation tricks, and chain attacks.
 
 Prompt modules inject this deep, specialized knowledge directly into the agent's context, transforming it from a generalist into a specialist for the task at hand.
 
@@ -36,50 +36,50 @@ The modules are injected into the agent's system prompt, giving it access to:
 
 Core vulnerability classes with deep exploitation techniques.
 
-| Module | Coverage |
-|--------|----------|
-| `authentication_jwt` | JWT attacks, algorithm confusion, claim tampering |
-| `idor` | Object reference attacks, horizontal/vertical access |
-| `sql_injection` | SQL injection variants, WAF bypasses, blind techniques |
-| `xss` | XSS types, filter bypasses, DOM exploitation |
-| `ssrf` | Server-side request forgery, protocol handlers |
-| `csrf` | Cross-site request forgery, token bypasses |
-| `xxe` | XML external entities, OOB exfiltration |
-| `rce` | Remote code execution vectors |
-| `business_logic` | Logic flaws, state manipulation, race conditions |
-| `race_conditions` | TOCTOU, parallel request attacks |
-| `path_traversal_lfi_rfi` | File inclusion, path traversal |
-| `open_redirect` | Redirect bypasses, URL parsing tricks |
-| `mass_assignment` | Attribute injection, hidden parameter pollution |
-| `insecure_file_uploads` | Upload bypasses, extension tricks |
-| `information_disclosure` | Data leakage, error-based enumeration |
-| `subdomain_takeover` | Dangling DNS, cloud resource claims |
-| `broken_function_level_authorization` | Privilege escalation, role bypasses |
+| Module                                | Coverage                                               |
+| ------------------------------------- | ------------------------------------------------------ |
+| `authentication_jwt`                  | JWT attacks, algorithm confusion, claim tampering      |
+| `idor`                                | Object reference attacks, horizontal/vertical access   |
+| `sql_injection`                       | SQL injection variants, WAF bypasses, blind techniques |
+| `xss`                                 | XSS types, filter bypasses, DOM exploitation           |
+| `ssrf`                                | Server-side request forgery, protocol handlers         |
+| `csrf`                                | Cross-site request forgery, token bypasses             |
+| `xxe`                                 | XML external entities, OOB exfiltration                |
+| `rce`                                 | Remote code execution vectors                          |
+| `business_logic`                      | Logic flaws, state manipulation, race conditions       |
+| `race_conditions`                     | TOCTOU, parallel request attacks                       |
+| `path_traversal_lfi_rfi`              | File inclusion, path traversal                         |
+| `open_redirect`                       | Redirect bypasses, URL parsing tricks                  |
+| `mass_assignment`                     | Attribute injection, hidden parameter pollution        |
+| `insecure_file_uploads`               | Upload bypasses, extension tricks                      |
+| `information_disclosure`              | Data leakage, error-based enumeration                  |
+| `subdomain_takeover`                  | Dangling DNS, cloud resource claims                    |
+| `broken_function_level_authorization` | Privilege escalation, role bypasses                    |
 
 ### Frameworks
 
 Framework-specific testing patterns.
 
-| Module | Coverage |
-|--------|----------|
+| Module    | Coverage                                     |
+| --------- | -------------------------------------------- |
 | `fastapi` | FastAPI security patterns, Pydantic bypasses |
-| `nextjs` | Next.js SSR/SSG issues, API route security |
+| `nextjs`  | Next.js SSR/SSG issues, API route security   |
 
 ### Technologies
 
 Third-party service and platform security.
 
-| Module | Coverage |
-|--------|----------|
-| `supabase` | Supabase RLS bypasses, auth issues |
-| `firebase_firestore` | Firestore rules, Firebase auth |
+| Module               | Coverage                           |
+| -------------------- | ---------------------------------- |
+| `supabase`           | Supabase RLS bypasses, auth issues |
+| `firebase_firestore` | Firestore rules, Firebase auth     |
 
 ### Protocols
 
 Protocol-specific testing techniques.
 
-| Module | Coverage |
-|--------|----------|
+| Module    | Coverage                                         |
+| --------- | ------------------------------------------------ |
 | `graphql` | GraphQL introspection, batching, resolver issues |
 
 ## Module Structure
@@ -88,7 +88,7 @@ Each module uses XML-style tags for structure:
 
 ```xml
 <vulnerability_guide>
-  <title>VULNERABILITY NAME</title>
+  <title>NAME</title>
   
   <critical>Key insight about this vulnerability</critical>
   
@@ -106,7 +106,7 @@ Each module uses XML-style tags for structure:
   
   <false_positives>What to watch out for</false_positives>
   
-  <pro_tips>Expert advice</pro_tips>
+  <pro_tips>Additional Expert advice</pro_tips>
 </vulnerability_guide>
 ```
 
@@ -122,6 +122,5 @@ Community contributions are welcome. Good modules include:
 See the [Contributing Guide](/contributing) to submit new modules.
 
 <Note>
-The module collection is actively expanding. Check the [GitHub repo](https://github.com/usestrix/strix/tree/main/strix/prompts) for the latest additions.
+  The module collection is actively expanding. Check the [GitHub repo](https://github.com/usestrix/strix/tree/main/strix/prompts) for the latest additions.
 </Note>
-
