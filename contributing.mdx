@@ -24,7 +24,7 @@ description: "Contribute to Strix development"
   <Step title="Install dependencies">
     ```bash
     make setup-dev
-
+    
     # or manually:
     poetry install --with=dev
     poetry run pre-commit install
@@ -45,16 +45,7 @@ description: "Contribute to Strix development"
 
 ## Contributing Prompt Modules
 
-Prompt modules are specialized knowledge packages that enhance agent capabilities. They live in `strix/prompts/`.
-
-### Categories
-
-| Directory | Purpose |
-|-----------|---------|
-| `/vulnerabilities` | Vulnerability-specific testing knowledge |
-| `/frameworks` | Framework-specific guidance (FastAPI, Next.js) |
-| `/technologies` | Technology-specific patterns (Firebase, Supabase) |
-| `/protocols` | Protocol knowledge (GraphQL) |
+Prompt modules are specialized knowledge packages that enhance agent capabilities. They live in `strix/prompts/`
 
 ### Creating a Module
 
@@ -103,4 +94,3 @@ Include:
     Report bugs and request features.
   </Card>
 </CardGroup>
-
