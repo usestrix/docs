@@ -110,7 +110,10 @@
     }
   },
   "appearance": {
-    "default": "dark"
+    "default": "system"
   },
-  "description": "Open-source AI Hackers to secure your Apps"
+  "description": "Open-source AI Hackers to secure your Apps",
+  "background": {
+    "decoration": "grid"
+  }
 }
