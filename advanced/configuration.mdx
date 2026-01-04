@@ -19,7 +19,7 @@ Configure Strix using environment variables.
   Custom API base URL. Also accepts `OPENAI_API_BASE`, `LITELLM_BASE_URL`, or `OLLAMA_API_BASE`.
 </ParamField>
 
-<ParamField path="LLM_TIMEOUT" type="integer" default="300">
+<ParamField path="LLM_TIMEOUT" default="300" type="integer">
   Request timeout in seconds for LLM calls.
 </ParamField>
 
@@ -39,7 +39,7 @@ Configure Strix using environment variables.
 
 ## Docker Configuration
 
-<ParamField path="STRIX_IMAGE" type="string" default="ghcr.io/usestrix/strix-sandbox:0.1.10">
+<ParamField path="STRIX_IMAGE" default="ghcr.io/usestrix/strix-sandbox:0.1.10" type="string">
   Docker image to use for the sandbox container.
 </ParamField>
 
@@ -47,21 +47,21 @@ Configure Strix using environment variables.
   Docker daemon socket path. Use for remote Docker hosts or custom configurations.
 </ParamField>
 
-<ParamField path="STRIX_RUNTIME_BACKEND" type="string" default="docker">
+<ParamField path="STRIX_RUNTIME_BACKEND" default="docker" type="string">
   Runtime backend for the sandbox environment.
 </ParamField>
 
 ## Sandbox Configuration
 
-<ParamField path="STRIX_SANDBOX_EXECUTION_TIMEOUT" type="float" default="500">
+<ParamField path="STRIX_SANDBOX_EXECUTION_TIMEOUT" default="500" type="float">
   Maximum execution time in seconds for sandbox operations.
 </ParamField>
 
-<ParamField path="STRIX_SANDBOX_CONNECT_TIMEOUT" type="float" default="10">
+<ParamField path="STRIX_SANDBOX_CONNECT_TIMEOUT" default="10" type="float">
   Timeout in seconds for connecting to the sandbox container.
 </ParamField>
 
-<ParamField path="STRIX_DISABLE_BROWSER" type="boolean" default="false">
+<ParamField path="STRIX_DISABLE_BROWSER" default="false" type="boolean">
   Disable browser tool. Set to `true` if you only need terminal-based testing.
 </ParamField>
 
@@ -82,11 +82,3 @@ export STRIX_SANDBOX_EXECUTION_TIMEOUT="1000"
 # Optional: Use custom Docker image
 export STRIX_IMAGE="ghcr.io/usestrix/strix-sandbox:latest"
 ```
-
-## Output Directory
-
-Results are saved to `strix_runs/<run-name>/` containing:
-
-- Vulnerability reports (JSON and Markdown)
-- Scan logs and agent traces
-- Screenshots and evidence files
