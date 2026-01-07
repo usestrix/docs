@@ -1,41 +1,41 @@
 ---
-title: "Prompt Modules"
+title: "Skills"
 description: "Specialized knowledge packages that enhance agent capabilities"
 ---
 
-Prompt modules are structured knowledge packages that give Strix agents deep expertise in specific vulnerability types, technologies, and testing methodologies.
+Skills are structured knowledge packages that give Strix agents deep expertise in specific vulnerability types, technologies, and testing methodologies.
 
 ## The Idea
 
 LLMs have broad but shallow security knowledge. They know _about_ SQL injection, but lack the nuanced techniques that experienced pentesters use—parser quirks, bypass methods, validation tricks, and chain attacks.
 
-Prompt modules inject this deep, specialized knowledge directly into the agent's context, transforming it from a generalist into a specialist for the task at hand.
+Skills inject this deep, specialized knowledge directly into the agent's context, transforming it from a generalist into a specialist for the task at hand.
 
 ## How They Work
 
-When Strix spawns an agent for a specific task, it selects up to 5 relevant prompt modules based on the context:
+When Strix spawns an agent for a specific task, it selects up to 5 relevant skills based on the context:
 
 ```python
-# Agent created for JWT testing automatically loads relevant modules
+# Agent created for JWT testing automatically loads relevant skills
 create_agent(
     task="Test authentication mechanisms",
-    prompt_modules=["authentication_jwt", "business_logic"]
+    skills=["authentication_jwt", "business_logic"]
 )
 ```
 
-The modules are injected into the agent's system prompt, giving it access to:
+The skills are injected into the agent's system prompt, giving it access to:
 
 - **Advanced techniques** — Non-obvious methods beyond standard testing
 - **Working payloads** — Practical examples with variations
 - **Validation methods** — How to confirm findings and avoid false positives
 
-## Module Categories
+## Skill Categories
 
 ### Vulnerabilities
 
 Core vulnerability classes with deep exploitation techniques.
 
-| Module                                | Coverage                                               |
+| Skill                                 | Coverage                                               |
 | ------------------------------------- | ------------------------------------------------------ |
 | `authentication_jwt`                  | JWT attacks, algorithm confusion, claim tampering      |
 | `idor`                                | Object reference attacks, horizontal/vertical access   |
@@ -59,7 +59,7 @@ Core vulnerability classes with deep exploitation techniques.
 
 Framework-specific testing patterns.
 
-| Module    | Coverage                                     |
+| Skill     | Coverage                                     |
 | --------- | -------------------------------------------- |
 | `fastapi` | FastAPI security patterns, Pydantic bypasses |
 | `nextjs`  | Next.js SSR/SSG issues, API route security   |
@@ -68,7 +68,7 @@ Framework-specific testing patterns.
 
 Third-party service and platform security.
 
-| Module               | Coverage                           |
+| Skill                | Coverage                           |
 | -------------------- | ---------------------------------- |
 | `supabase`           | Supabase RLS bypasses, auth issues |
 | `firebase_firestore` | Firestore rules, Firebase auth     |
@@ -77,13 +77,13 @@ Third-party service and platform security.
 
 Protocol-specific testing techniques.
 
-| Module    | Coverage                                         |
+| Skill     | Coverage                                         |
 | --------- | ------------------------------------------------ |
 | `graphql` | GraphQL introspection, batching, resolver issues |
 
-## Module Structure
+## Skill Structure
 
-Each module uses XML-style tags for structure:
+Each skill uses XML-style tags for structure:
 
 ```xml
 <vulnerability_guide>
@@ -91,7 +91,7 @@ Each module uses XML-style tags for structure:
   
   <critical>Key insight about this vulnerability</critical>
   
-  <scope>What this module covers</scope>
+  <scope>What this skill covers</scope>
   
   <methodology>Step-by-step testing approach</methodology>
   
@@ -109,9 +109,9 @@ Each module uses XML-style tags for structure:
 </vulnerability_guide>
 ```
 
-## Contributing Modules
+## Contributing Skills
 
-Community contributions are welcome. Good modules include:
+Community contributions are welcome. Good skills include:
 
 1. **Real-world techniques** — Methods that work in practice
 2. **Practical payloads** — Working examples with variations

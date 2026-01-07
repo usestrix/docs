@@ -62,7 +62,7 @@
             "group": "Advanced",
             "pages": [
               "advanced/configuration",
-              "advanced/prompt-modules",
+              "advanced/skills",
               "contributing"
             ]
           }
